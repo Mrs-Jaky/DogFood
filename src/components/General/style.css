@@ -1,0 +1,77 @@
+
+header {
+    background: orange;
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+header .search-block {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #222;
+    color: orange;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.logo img {
+    height: 30px;
+}
+.footer__copy {
+    display: grid;
+    align-content: space-between;
+}
+.footer__nav {
+    display: grid;
+    gap: 10px;
+}
+.footer__nav a:hover {
+    color: orange;
+}
+.header__menu,
+.header__menu>span {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header__menu>span>* {
+    cursor: pointer;
+}
+.header__menu svg:hover {
+    fill: white;
+}
+
+/* 
+    То же самое
+    .header__menu a:hover,
+    .header__menu span:hover {
+        color: orange
+    } 
+*/
+
+@media (min-width: 576px){
+  header {
+    flex-wrap: no-wrap;
+  }
+  header .search-block {
+    order: 0;
+    width: auto;
+  }
+}

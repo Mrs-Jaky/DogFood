@@ -1,0 +1,55 @@
+.modal-wrapper {
+	position: fixed;
+	background: #228b2288;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	backdrop-filter: blur(1px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal__custom {
+	width: 300px;
+	background-color: white;
+	padding: 20px;
+	box-sizing: border-box;
+	position: relative;
+	border-radius: 8px;
+	display: block;
+	height: auto;
+}
+.modal-close {
+	position: absolute;
+	top: 10px;
+	right: 6px;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+	font-size: 1.2rem;
+}
+.modal-close:hover {
+	color: forestgreen;
+}
+h3 {
+	margin: 0;
+	margin-bottom: 20px;
+}
+.modal__custom form {
+	display: grid;
+	gap: 10px;
+}
+.modal-btns {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	font-size: 12px;
+}
+.modal-link {
+	border: 1px solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
