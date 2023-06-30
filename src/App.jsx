@@ -18,12 +18,20 @@ import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 import AddProduct from "./pages/AddProduct";
 import Favorites from "./pages/Favorites";
+import Basket from "./pages/Basket";
 
 const App = () => {
+    let basketStore = localStorage.getItem("basket12");
+    if (basketStore && basketStore[0] === "[") {
+        basketStore = JSON.parse(basketStore);
+    } else {
+        basketStore = [];
+    }
     const [user, setUser] = useState(localStorage.getItem("user12"));
     const [userId, setUserId] = useState(localStorage.getItem("user12-id"));
     const [token, setToken] = useState(localStorage.getItem("token12"));
     const [api, setApi] = useState(new Api(token));
+    const [basket, setBasket] = useState(basketStore);
     /*
         Есть массив с товарами (основной) [a,b,c] => [b,c] => [a]???
         | |
@@ -48,6 +56,10 @@ const App = () => {
             setToken(null);
         }
     }, [user])
+
+    useEffect(() => {
+        localStorage.setItem("basket12", JSON.stringify(basket));
+    }, [basket])
 
     useEffect(() => {
         setApi(new Api(token));
@@ -116,7 +128,9 @@ const App = () => {
             setGoods,
             userId,
             token,
-            api
+            api,
+            basket,
+            setBasket
         }}>
             {/*<Ctx2.Provider>*/}
             {/*Так можно использовать еще один контекст для ограниченного количества компнентов*/}
@@ -163,6 +177,7 @@ const App = () => {
                     */}
                     <Route path="/product/:id" element={<Product />}/>
                     <Route path="/add/product" element={<AddProduct/>}/>
+                    <Route path="/basket" element={<Basket/>}/>
                 </Routes>
             </main>
             <Footer/>

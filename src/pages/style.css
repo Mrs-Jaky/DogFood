@@ -1,0 +1,38 @@
+
+.promotional-1 {
+    background-image: url(https://new-world-rpg.ru/wp-content/uploads/1/c/0/1c0ddbca77f510ac23952984e1dc4246.jpeg);
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    border-radius: 8px;
+    margin-left: 25%;
+  }
+
+.promotional-2 {
+    background-image: url(https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/53/cb/fb/227628_960x455.jpg);
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 8px;
+    margin-left: 25%;
+  }
+
+  .promotional-3 {
+    background-image: url(https://sun9-73.userapi.com/impf/c847221/v847221504/170e67/1JCdOCLtc5s.jpg?size=604x248&quality=96&sign=99cee06f282a934884b6dcb673ae0f18&type=album);
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    border-radius: 8px;
+    margin-left: 25%;
+  }
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}

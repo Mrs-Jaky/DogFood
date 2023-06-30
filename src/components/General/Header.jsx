@@ -1,3 +1,4 @@
+import {useContext} from "react";
 import {Link} from "react-router-dom";
 import Logo from "./Logo";
 import {
@@ -6,6 +7,7 @@ import {
     PersonCircle, 
     BuildingUp
 } from "react-bootstrap-icons";
+import Ctx from "../../ctx"
 
 import Search from "../Search";
 const Header = ({
@@ -14,6 +16,7 @@ const Header = ({
         setGoods,
         setModalOpen
     }) => {
+    const {basket} = useContext(Ctx);
     const login = () => {
         setModalOpen(true)
     }
@@ -30,8 +33,11 @@ const Header = ({
                 <Link to="/favorites">
                     <BalloonHeart title="Избранное"/>
                 </Link>
-                <Link to="/cart">
+                <Link to="/basket" className="header__link">
                     <Cart4  title="Корзина"/>
+                    {basket.length > 0 && <span className="header__badge">
+                        {basket.reduce((acc, el) => acc + el.cnt, 0)}
+                    </span>}
                 </Link>
                 <Link to="/profile">
                     <PersonCircle  title="Личный кабинет"/>
