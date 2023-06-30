@@ -26,9 +26,8 @@ const Card = ({
     _id, 
     user
 }) => {
-    const {setBaseData, basket, setBasket} = useContext(Ctx)
+    const {setBaseData} = useContext(Ctx)
     const [isLike, setIsLike] = useState(likes?.includes(user) || []);
-    const inBasket = basket.filter(el => _id === el.id).length > 0;
 
     const likeHandler = () => {
         setIsLike(!isLike);
@@ -45,17 +44,6 @@ const Card = ({
             return el;
         }))
     }
-    const addToBasket = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // Нет проверки на то, что товар уже есть в корзине и нужно увеличить его кол-во, как на стр одного товара
-        setBasket(prev => [...prev, {
-            id: _id,
-            price,
-            discount,
-            cnt: 1
-        }])
-    }
     return <div className="card-lite" id={"pro_" + _id}>
         {likes && <span className="card-like" onClick={likeHandler}>
             {isLike ? <SuitHeartFill/> : <SuitHeart/>}
@@ -63,10 +51,7 @@ const Card = ({
         <img src={pictures} alt={name}/>
         <h4>{price} ₽</h4>
         <p>{name}</p>
-        <button
-            disabled={inBasket}
-            onClick={addToBasket}
-        >Купить</button>
+        <button>Купить</button>
         <Link to={`/product/${_id}`} className="card-link"></Link>
     </div>
 }
